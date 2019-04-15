@@ -1,0 +1,39 @@
+{
+    "name":"creativecommons/wp-theme-cc-sotc",
+    "description":"The state of the Commons theme",
+    "type":"wordpress-theme",
+    "license":"GPL-2.0-or-later",
+    "authors": [
+        {
+            "name":"Hugo Solar",
+            "email":"hugo@creativecommons.org"
+        }
+    ],
+    "repositories": [
+        {
+            "type":"vcs",
+            "url":"https://github.com/creativecommons/queulat",
+            "no-api":true
+        }
+    ],
+    "require": {
+        "composer/installers":"~1.0",
+        "creativecommons/queulat":"2019.4.2"
+    },
+    "extra": {
+        "installer-name":"wp-theme-cc-sotc"
+    },
+    "scripts": {
+        "compat":"phpcs -p --standard=PHPCompatibility --runtime-set testVersion 7.0 -n . --extensions=php --cache",
+        "fix":"phpcbf --standard=WordPress . --extensions=php",
+        "lint":"parallel-lint . --blame --exclude vendor",
+        "sniff":"phpcs --standard=WordPress ."
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer":"^0.4.3",
+        "jakub-onderka/php-parallel-lint":"^0.9.2",
+        "phpcompatibility/php-compatibility":"^9.1",
+        "squizlabs/php_codesniffer":"3.*",
+        "wp-coding-standards/wpcs":"^2.0"
+   }
+}
