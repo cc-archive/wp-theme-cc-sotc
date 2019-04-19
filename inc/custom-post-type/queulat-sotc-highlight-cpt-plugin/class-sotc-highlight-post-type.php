@@ -66,8 +66,7 @@ class Sotc_Highlight_Post_Type extends Post_Type {
 			'delete_with_user'      => true,
 			'rewrite'               => false,
 			'supports'              => [
-				0 => 'title',
-				1 => 'editor',
+				0 => 'title'
 			],
 			'show_in_rest'          => true,
 			'rest_base'             => false,

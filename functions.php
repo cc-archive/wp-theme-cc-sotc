@@ -29,11 +29,12 @@ define('THEME_JS', THEME_URI. '/assets/js');
 	// include TEMPLATEPATH . '/inc/shortcodes.php';
     include TEMPLATEPATH. '/inc/taxonomies.php';
 //Custom Post type files
-include TEMPLATEPATH . '/inc/custom-post-type/queulat-sotc-platform-cpt-plugin/sotc-platform-cpt-plugin.php';
-include TEMPLATEPATH . '/inc/custom-post-type/queulat-sotc-license-cpt-plugin/sotc-license-cpt-plugin.php';
-include TEMPLATEPATH . '/inc/custom-post-type/queulat-sotc-impact-cpt-plugin/sotc-impact-cpt-plugin.php';
 include TEMPLATEPATH . '/inc/custom-post-type/queulat-sotc-highlight-cpt-plugin/sotc-highlight-cpt-plugin.php';
+include TEMPLATEPATH . '/inc/custom-post-type/queulat-sotc-impact-cpt-plugin/sotc-impact-cpt-plugin.php';
+include TEMPLATEPATH . '/inc/custom-post-type/queulat-sotc-license-cpt-plugin/sotc-license-cpt-plugin.php';
+include TEMPLATEPATH . '/inc/custom-post-type/queulat-sotc-platform-cpt-plugin/sotc-platform-cpt-plugin.php';
 include TEMPLATEPATH . '/inc/custom-post-type/queulat-sotc-financial-cpt-plugin/sotc-financial-cpt-plugin.php';
+include TEMPLATEPATH . '/inc/custom-post-type/queulat-sotc-report-cpt-plugin/sotc-report-cpt-plugin.php';
 
 /**
  * Images
@@ -49,6 +50,7 @@ add_theme_support( 'post-thumbnails' );
 // add_image_size( $name, $width, $height, $crop );
 add_image_size( 'squared', 300, 300, true );
 add_image_size( 'landscape-medium', 740, 416, true );
+add_image_size( 'feature-full', 2000, 700, true );
 /*
 	REGISTER SIDEBARS
 */

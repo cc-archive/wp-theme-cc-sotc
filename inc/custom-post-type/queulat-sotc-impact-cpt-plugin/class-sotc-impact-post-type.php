@@ -52,7 +52,7 @@ class Sotc_Impact_Post_Type extends Post_Type {
 			'show_in_nav_menus'     => true,
 			'show_in_admin_bar'     => true,
 			'menu_position'         => null,
-			'menu_icon'             => 'dashicons-visibility',
+			'menu_icon'             => 'dashicons-chart-area',
 			'capability_type'       => [
 				0 => 'sotc_impact',
 				1 => 'sotc_impacts',
@@ -67,7 +67,6 @@ class Sotc_Impact_Post_Type extends Post_Type {
 			'rewrite'               => false,
 			'supports'              => [
 				0 => 'title',
-				1 => 'editor',
 				2 => 'thumbnail',
 			],
 			'show_in_rest'          => true,

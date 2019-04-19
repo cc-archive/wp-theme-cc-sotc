@@ -14,6 +14,7 @@ function register_post_type_plarforms() {
 	require_once __DIR__ .'/class-sotc-platform-post-type.php';
 	require_once __DIR__ .'/class-sotc-platform-post-query.php';
 	require_once __DIR__ .'/class-sotc-platform-post-object.php';
+	require_once __DIR__ .'/class-sotc-platform-metabox.php';
 }
 
 add_action('init','register_post_type_plarforms');

@@ -15,6 +15,7 @@ function register_post_type_financial() {
 	require_once __DIR__ .'/class-sotc-financial-post-type.php';
 	require_once __DIR__ .'/class-sotc-financial-post-query.php';
 	require_once __DIR__ .'/class-sotc-financial-post-object.php';
+	require_once __DIR__ .'/class-sotc-financial-metabox.php';
 }
 
 add_action('init', 'register_post_type_financial');

@@ -18,7 +18,7 @@
     ],
     "require": {
         "composer/installers":"~1.0",
-        "creativecommons/queulat":"2019.4.2"
+        "felipelavinz/queulat":"2019.4.2"
     },
     "extra": {
         "installer-name":"wp-theme-cc-sotc"

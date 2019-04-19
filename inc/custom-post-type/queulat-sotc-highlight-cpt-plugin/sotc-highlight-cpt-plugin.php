@@ -15,6 +15,7 @@ function register_post_type_highlight() {
 	require_once __DIR__ .'/class-sotc-highlight-post-type.php';
 	require_once __DIR__ .'/class-sotc-highlight-post-query.php';
 	require_once __DIR__ .'/class-sotc-highlight-post-object.php';
+	require_once __DIR__ .'/class-sotc-highlight-metabox.php';
 }
 
 add_action('init', 'register_post_type_highlight');
