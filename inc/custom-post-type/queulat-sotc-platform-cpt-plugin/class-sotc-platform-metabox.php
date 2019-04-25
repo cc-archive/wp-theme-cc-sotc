@@ -7,6 +7,7 @@ use Queulat\Forms\Element\Input;
 class Platform_Metabox extends Metabox
 {
     public function __construct($id = '', $title = '', $post_type = '', array $args = array()) {
+        wp_enqueue_media();
         parent::__construct($id, $title, $post_type, $args);
     }
     

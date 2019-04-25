@@ -21,6 +21,7 @@ var js = {
   fileList: [
     'node_modules/foundation-sites/dist/js/plugins/foundation.core.js',
     'node_modules/foundation-sites/dist/js/plugins/foundation.util.mediaQuery.js',
+    'node_modules/foundation-sites/dist/js/plugins/foundation.util.imageLoader.js',
     'node_modules/foundation-sites/dist/js/plugins/foundation.util.keyboard.js',
     'node_modules/foundation-sites/dist/js/plugins/foundation.util.triggers.js',
     'node_modules/foundation-sites/dist/js/plugins/foundation.util.box.js',

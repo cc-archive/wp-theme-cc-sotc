@@ -1,0 +1,95 @@
+.main-header {
+    position: relative;
+    background-color: $primary-color;
+    color: $white;
+    z-index: 90;
+    @include shadow;
+    .grid-container {
+        padding-top: .8rem;
+        padding-bottom: .8rem;
+        .logo {
+            a {
+                color: $white;
+                .site-title {
+                    @include white-logo;
+                    margin-bottom: 0;
+                }
+                .tagline {
+                    display: block;
+                    padding-left: 4rem;
+                    letter-spacing: 1.7px;
+                    text-transform: uppercase;
+                }
+            }
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+            padding-left: 2rem;
+            .main-navigation {
+                .menu {
+                    li {
+                        a {
+                            color: $white;
+                            font-family: $title-font-family;
+                            font-size: 1.3rem;
+                            border-bottom: 2px solid transparent;
+                            &:hover {
+                                border-bottom: 2px solid $secondary-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.platform-list {
+    margin-top: 1.5rem;
+}
+.page-container {
+    position: relative;
+    margin-top: -3rem;
+    .page-image {
+        position: relative;
+        img {
+            position: absolute;
+            left: 4rem;
+            top: -1.5rem;
+            border-radius: 50%;
+            border: 10px solid $white;
+        }
+    }
+    .page-content {
+        padding: 2rem 4rem 1rem 4rem;
+        background-color: $white;
+        .comma {
+            position: absolute;
+            right: 2rem;
+            top: 0;
+            font-size: 7rem;
+            color: $light-gray;
+        }
+        p {
+            font-size: 1.3rem;
+            line-height: 2.3rem;
+        }
+        .entry-more {
+            .dashicons {
+                position: relative;
+                top: 2px;
+            }
+        }
+        .more-content {
+            display: none;
+        }
+    }
+}
+
+.main-footer {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    .footer-info {
+        color: $white;
+    }
+}

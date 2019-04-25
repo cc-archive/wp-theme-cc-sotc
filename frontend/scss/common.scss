@@ -1,0 +1,30 @@
+.gradient-blue {
+    @include gradient-blue;
+}
+.inner-space {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.closed {
+    position: absolute;
+    top: -100vh;
+    opacity: 0;
+    visibility: hidden;
+}
+.background-white {
+    background-color: $white;
+}
+.background-gray-light {
+    background-color: $lighter-gray;
+}
+.background-dark-gray {
+    background-color: $darker-gray;
+}
+.button {
+    &.primary {
+        color: $white;
+        &:hover {
+            color: $white;
+        }
+    }
+}

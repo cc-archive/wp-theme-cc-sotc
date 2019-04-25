@@ -32,7 +32,7 @@ class License_Metabox extends Metabox
                 ]
             ),
             Node_Factory::make(
-                Input_Number::class,
+                Input::class,
                 [
                     'name' => 'number',
                     'label' => 'Number',

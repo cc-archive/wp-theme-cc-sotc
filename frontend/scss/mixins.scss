@@ -1,0 +1,50 @@
+// Global network mixins
+@mixin white-logo {
+    background-image: url(../img/cc.logo.white.svg);
+    text-indent: -100rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+@mixin placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; } 
+}
+@mixin coverer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+// ---------------- Appearance
+@mixin shadow {
+    box-shadow: 0 1px 4px rgba(0,0,0,.2);
+}
+//colors
+@mixin gradient-yellow {
+    background-image: linear-gradient(92deg, #EEBF00 0%, #FFDE37 50%, #EEBF00 100%);
+}
+@mixin gradient-blue {
+    background-image: linear-gradient(92deg, $primary-color 0%, lighten($primary-color,22) 50%, $primary-color 100%);
+}
+
+//buttons 
+@mixin button-arrow($color) {
+    position: relative;
+    background-color: $color;
+    &:after {
+        content: "";
+        position: absolute;
+        right:-23px;
+        top:-1px;
+        width: 0; 
+        height: 0; 
+        border-top: 21px solid transparent;
+        border-bottom: 21px solid transparent;
+        border-left: 22px solid $color;
+    }
+}

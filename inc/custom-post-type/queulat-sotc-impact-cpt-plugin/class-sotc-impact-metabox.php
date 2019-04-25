@@ -3,7 +3,6 @@ use Queulat\Metabox;
 use Queulat\Forms\Node_Factory;
 use Queulat\Forms\Element\WP_Editor;
 use Queulat\Forms\Element\Input;
-use Queulat\Forms\Element\Input_Number;
 
 
 class Impact_Metabox extends Metabox
@@ -32,7 +31,7 @@ class Impact_Metabox extends Metabox
                 ]
             ),
             Node_Factory::make(
-                Input_Number::class,
+                Input::class,
                 [
                     'name' => 'number',
                     'label' => 'Number',

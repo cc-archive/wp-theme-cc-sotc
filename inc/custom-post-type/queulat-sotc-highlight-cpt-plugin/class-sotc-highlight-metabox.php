@@ -3,6 +3,7 @@ use Queulat\Metabox;
 use Queulat\Forms\Node_Factory;
 use Queulat\Forms\Element\WP_Editor;
 use Queulat\Forms\Element\Input_Url;
+use Queulat\Forms\Element\Input;
 
 
 class Highlights_Metabox extends Metabox
@@ -31,6 +32,19 @@ class Highlights_Metabox extends Metabox
                 ]
             ),
             Node_Factory::make(
+                Input::class,
+                [
+                    'name' => 'url_text',
+                    'label' => 'External link text',
+                    'attributes' => [
+                        'class' => 'widefat'
+                    ],
+                    'properties' => [
+                        'description' => 'if no text is specified "Visit" will be used'
+                    ]
+                ]
+            ),
+            Node_Factory::make(
                 Input_url::class,
                 [
                     'name' => 'url',
@@ -39,7 +53,7 @@ class Highlights_Metabox extends Metabox
                         'class' => 'widefat'
                     ],
                     'properties' => [
-                        'description' => 'Place here the external link'
+                        'description' => 'Place an external link'
                     ]
                 ]
             )
@@ -54,9 +68,12 @@ class Highlights_Metabox extends Metabox
                 case 'content':
                     $sanitized[$key] = wp_kses_post($val);
                     break;
+                case 'url_text':
+                    $sanitized[$key] = $val;
+                break;
                 case 'url':
                     $sanitized[$key] = esc_url_raw($val);
-                    break;
+                break;
             }
         }
         return $sanitized;

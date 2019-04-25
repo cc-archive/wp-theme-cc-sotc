@@ -68,7 +68,7 @@ class Sotc_Report_Post_Type extends Post_Type {
 				'with_front' => true,
 				'feeds'      => true,
 				'pages'      => true,
-				'slug'       => 'sotc_report',
+				'slug'       => 'report',
 				'ep_mask'    => 1,
 			],
 			'supports'              => [

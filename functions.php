@@ -19,15 +19,16 @@ define('THEME_JS', THEME_URI. '/assets/js');
 /*
 	calling related files
 */
-	// include TEMPLATEPATH . '/inc/settings.php';
 	// include TEMPLATEPATH . '/inc/helpers.php';
-	// include TEMPLATEPATH . '/inc/site.php';
-	// include TEMPLATEPATH . '/inc/render.php';
 	// include TEMPLATEPATH . '/inc/filters.php';
 	// include TEMPLATEPATH . '/inc/widgets.php';
-	// include TEMPLATEPATH . '/inc/multilang.php';
 	// include TEMPLATEPATH . '/inc/shortcodes.php';
-    include TEMPLATEPATH. '/inc/taxonomies.php';
+include TEMPLATEPATH . '/inc/settings.php';
+include TEMPLATEPATH . '/inc/site.php';
+include TEMPLATEPATH . '/inc/render.php';
+include TEMPLATEPATH . '/inc/multilang-strings.php';
+include TEMPLATEPATH. '/inc/taxonomies.php';
+
 //Custom Post type files
 include TEMPLATEPATH . '/inc/custom-post-type/queulat-sotc-highlight-cpt-plugin/sotc-highlight-cpt-plugin.php';
 include TEMPLATEPATH . '/inc/custom-post-type/queulat-sotc-impact-cpt-plugin/sotc-impact-cpt-plugin.php';
@@ -51,6 +52,7 @@ add_theme_support( 'post-thumbnails' );
 add_image_size( 'squared', 300, 300, true );
 add_image_size( 'landscape-medium', 740, 416, true );
 add_image_size( 'feature-full', 2000, 700, true );
+add_image_size( 'platform-logo', 200, 9999, false );
 /*
 	REGISTER SIDEBARS
 */
@@ -170,7 +172,7 @@ class site {
 		// Front-end styles
 		wp_enqueue_style( 'Gfonts', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Source+Sans+Pro:400,400i,600" rel="stylesheet');
 		wp_enqueue_style( 'dependencies', THEME_CSS .'/dependencies.css');
-		wp_enqueue_style( 'sotc_style', get_stylesheet_uri() );
+		wp_enqueue_style( 'sotc_style', THEME_CSS .'/style.css' );
 		wp_enqueue_style( 'dashicons' );
 	}
 
@@ -183,7 +185,7 @@ class site {
 		// front-end scripts
 		wp_enqueue_script( 'jquery' , true);
 		wp_enqueue_script( 'dependencies', THEME_JS .'/dependencies.js', array('jquery'), self::theme_ver, true );
-		wp_enqueue_script( 'sotc_script', THEME_JS .'/script.js', array('jquery'), self::theme_ver, true );
+		wp_enqueue_script( 'sotc_script', THEME_JS .'/script.js', array('jquery','dependencies'), self::theme_ver, true );
 		//attach data to script.js
 		$ajax_data = array(
 			'url' => admin_url( 'admin-ajax.php' )

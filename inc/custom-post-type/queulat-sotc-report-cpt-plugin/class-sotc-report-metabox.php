@@ -26,7 +26,7 @@ class Report_Metabox extends Metabox
         $return = array(
             '' => 'Select category'
             );
-        $categories = get_categories();
+        $categories = get_terms('sotc_year');
         foreach ($categories as $category) {
             $return[$category->term_id] = $category->name;
         }
@@ -177,11 +177,35 @@ class Report_Metabox extends Metabox
         $sanitized = [];
         foreach ($data as $key => $val) {
             switch ($key) {
-                case 'content':
-                    $sanitized[$key] = wp_kses_post($val);
+                case 'year':
+                    $sanitized[$key] = $val;
                     break;
-                case 'url':
-                    $sanitized[$key] = esc_url_raw($val);
+                case 'subtitle':
+                    $sanitized[$key] = $val;
+                    break;
+                case 'background':
+                    $sanitized[$key] = $val;
+                    break;
+                case 'welcome_page':
+                    $sanitized[$key] = $val;
+                    break;
+                case 'highlights_tag':
+                    $sanitized[$key] = $val;
+                    break;
+                case 'impact_tag':
+                    $sanitized[$key] = $val;
+                    break;
+                case 'data_tag':
+                    $sanitized[$key] = $val;
+                    break;
+                case 'platform_tag':
+                    $sanitized[$key] = $val;
+                    break;
+                case 'financial_tag':
+                    $sanitized[$key] = $val;
+                    break;
+                case 'thanks_page':
+                    $sanitized[$key] = $val;
                     break;
             }
         }

@@ -1,9 +1,7 @@
 <?php 
     get_header();
-    global $_set;
-    $settings = $_set->settings;
-    $current_report_id = (!empty($settings['current-report'])) ? $settings['current-report'] : '';
-    $current_report = (!empty($current_report_id)) ? get_post($current_report_id) : null;
+    global $_set, $post;
+    $current_report = $post;
     if (!empty($current_report)):
 ?>
 <section class="main-content">
@@ -29,7 +27,6 @@
             $page = get_post($current_report->report_welcome_page);
             $content = get_extended($page->post_content);
         ?>
-            <a name="welcome"></a>
             <section class="front-welcome">
                 <div class="grid-container white-background">
                     <div class="grid-x grid-padding-x page-container">
@@ -60,10 +57,10 @@
         <?php endif; ?>
     <?php 
         if (!empty($current_report->report_highlights_tag)):
+            
             $highlights = front::get_highlights(-1,$current_report->report_highlights_tag);
             if (!empty($highlights)):
         ?>
-            <a name="highlight"></a>
             <section class="front-highlights section-container background-gray-light">
                 <div class="grid-container">
                     <div class="grid-x">
@@ -90,7 +87,6 @@
         $impact_items = front::get_impact_numbers(-1,$current_report->report_impact_tag);
         if (!empty($impact_items)):
      ?>
-            <a name="impact"></a>
             <section class="front-imapct section-container">
                 <div class="grid-container">
                     <div class="grid-x">
@@ -127,7 +123,6 @@
         $licenses_items = front::get_license_data(1,$current_report->report_data_tag);
         if (!empty($licenses_items)):
      ?>
-            <a name="license"></a>
             <section class="front-licenses section-container background-gray-light">
                 <div class="grid-container">
                     <div class="grid-x">
@@ -151,7 +146,6 @@
         $platform_items = front::get_platforms(8,$current_report->report_platform_tag);
         if (!empty($platform_items)):
      ?>
-        <a name="platform"></a>
         <section class="front-platform section-container">
             <div class="grid-container">
                 <div class="grid-x">
@@ -180,7 +174,6 @@
         $financial_items = front::get_financial_data(-1,$current_report->report_financial_tag);
         if (!empty($financial_items)):
      ?>
-            <a name="financial"></a>
             <section class="front-financial section-container background-gray-light">
                 <div class="grid-container">
                     <div class="grid-x">
@@ -218,7 +211,6 @@
     if (!empty($current_report->report_thanks_page)) :
         $page_thankyou = get_post($current_report->report_thanks_page);
     ?>
-        <a name="thanks"></a>
         <section class="front-thankyou section-container">
             <div class="grid-container">
                 <div class="grid-x grid-padding-x page-container">

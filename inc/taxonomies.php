@@ -39,7 +39,7 @@ function tax_register_sotc_year() {
 		'show_tagcloud'              => true,
 		'rewrite'                    => $rewrite,
 	);
-	register_taxonomy( 'sotc_year', array( 'post', 'sotc_feature', 'sotc_financial', 'sotc_highlight', 'sotc_highlight', 'sotc_impact', 'sotc_license', 'sotc_platform' ), $args );
+	register_taxonomy( 'sotc_year', array( 'post', 'sotc_financial', 'sotc_highlight', 'sotc_highlight', 'sotc_impact', 'sotc_license', 'sotc_platform' ), $args );
 
 }
 add_action( 'init', 'tax_register_sotc_year', 0 );
