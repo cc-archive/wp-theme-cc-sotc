@@ -1,7 +1,21 @@
 .main-feature {
     position: relative;
-    img {
-        width: 100%;
+    .feature-image {
+        img {
+            width: 100%;
+        }
+    }
+    .feature-video {
+        height: 70vh;
+        overflow: hidden;
+        .featured-video-element {
+            width: 100%;
+            margin-top: -10%;
+            mix-blend-mode: multiply;
+            // background-image: url(img/back-video.png);
+            background-position: center;
+            background-size: cover;
+        }
     }
     .content-wrap {
         @include coverer;
@@ -36,6 +50,17 @@
                 font-size: 1.7rem;
                 letter-spacing: 1.4rem;
                 background-color: rgba($white,.4);
+            }
+        }
+    }
+    @include breakpoint(small only) {
+        .feature-image {
+            height: 35vh;
+            overflow: hidden;
+            img {
+                width: 150%;
+                max-width: 150%;
+                margin-left: -50%;
             }
         }
     }
@@ -90,6 +115,7 @@
     background-position: center center;
     @include shadow;
     .entry-title {
+        width: 100%;
         font-size: rem-calc(30);
         font-weight: 700;
         text-align: center;
@@ -175,6 +201,7 @@
 .entry-platform {
     display: flex;
     padding: 1rem;
+    margin-bottom: 1.5rem;
     flex-direction: column;
     flex-flow: row wrap;
     justify-content: center;

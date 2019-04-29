@@ -44,6 +44,175 @@
         }
     }
 }
+.admin-bar {
+    .main-header-sticky {
+        &.opened {
+            top: 2rem;
+        }
+    }
+}
+.main-header-sticky {
+    position: fixed;
+    top: -10rem;
+    opacity: 0;
+    width: 100%;
+    background-color: $primary-color;
+    transition: all .4s ease-in-out;
+    z-index: 99;
+    &.opened {
+        top: 0;
+        opacity: 1;
+        .grid-container {
+            .mini-logo {
+                a {
+                    .site-title {
+                        background-position: center;
+                    }
+                    .tagline {
+                        top: 0;
+                    }
+                }
+            }
+        }
+    }
+    .grid-container {
+        .mini-logo {
+            a {
+                display: flex;
+                align-items: center;
+                .site-title {
+                    width: 18%;
+                    background-image: url(../img/cc.iso.logo.white.svg);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: -10rem;
+                    text-indent: -1000rem;
+                    transition: all .6s ease-in;
+                }
+                .tagline {
+                    position: relative;
+                    top: -10rem;
+                    padding-left: .5rem;
+                    color: $white;
+                    text-transform: uppercase;
+                    transition: all .6s ease-in;
+                }
+            }
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+            .main-navigation {
+                .menu-item {
+                    a {
+                        color: $white;
+                        font-family: $title-font-family;
+                        border-bottom: 2px solid transparent;
+                        &.is-active, :hover, :active  {
+                            border-bottom: 2px solid $secondary-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.mobile-nav {
+    position: fixed;
+	width: 100%;
+    padding: .5rem;
+    z-index: 990;
+    box-shadow: 0 1px 3px rgba($black,.4);
+    
+    .mobile-logo {
+        background-image: url(../img/cc.logo.white.svg);
+        width: 150px;
+        height: 34px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .mobile-nav-open {
+        color: $white;
+        .dashicons {
+            width: 2rem;
+            height: 2rem;
+            font-size: 2rem;
+        }
+    }
+}
+
+.menu-mobile-container {
+    &.closed {
+        left: -100%;
+        opacity: 0; 
+    }
+	margin-top: 6rem;
+    @include coverer;
+    position: fixed;
+    left: 0;
+    z-index: 9999;
+    background: $primary-color;
+    opacity: 1;
+    transition: all .5s ease;
+    .close {
+        position: absolute;
+        right: 2.5rem;
+        top: .5rem;
+        color: $white;
+        z-index: 20;
+        .dashicons {
+            font-size: 2rem;
+        }
+    }
+    .mobile-navigation {
+        padding-right: 4rem;
+    }
+    .is-drilldown {
+    	margin-top: 1rem;
+    }
+    .menu {
+    	display: block;
+        margin: 1rem 1.5rem 0 1.5rem;
+        padding-right: 3rem;
+        li {
+            a {
+                color: $white;
+                text-transform: uppercase;
+                font-weight: 700;
+                text-transform: uppercase;
+                line-height: 1.2rem;
+               &:active {
+               		background-color: darken($primary-color,20);
+               		color: $white;
+               }
+
+            }
+            &.active {
+            	a {
+            		text-decoration: underline;
+            	}
+            }
+            .is-drilldown-submenu {
+            	//top: 5rem;
+            	background-color: $primary-color;
+            	li {
+            		margin-bottom: 1rem;
+            		a {
+            			color: $white;
+            		}
+            		&.js-drilldown-back {
+            			&>a {
+            				&:before {
+            					display: none !important;
+            				}
+            			}
+            		}
+            	}
+            }
+        }
+    }
+}
+
 .platform-list {
     margin-top: 1.5rem;
 }
@@ -84,6 +253,24 @@
             display: none;
         }
     }
+    @include breakpoint(small only) {
+        margin-top: 0;
+        .page-image {
+            text-align: center;
+            img {
+                width: 40%;
+                position: static;
+            }
+        }
+        .page-content {
+            .entry-more {
+                display: block;
+                padding: .3rem 1rem;
+                background-color: $secondary-color;
+                color: $white;
+            }
+        }
+    }
 }
 
 .main-footer {
@@ -91,5 +278,11 @@
     padding: 1.5rem;
     .footer-info {
         color: $white;
+    }
+    @include breakpoint(small only) {
+        text-align: center;
+        .footer-info {
+            margin-top: 2rem;
+        }
     }
 }

@@ -66,7 +66,7 @@ class ThemeSettings
                                     'class' => 'widefat'
                                 ],
                                 'properties' => [
-                                    'description' => 'Element content',
+                                    'description' => 'Write your footer content',
                                     'media_buttons' => true,
                                     'drag_drop_upload' => false,
                                     'textarea_rows' => 5

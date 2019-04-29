@@ -4,6 +4,7 @@ use Queulat\Forms\Node_Factory;
 use Queulat\Forms\Element\WP_Editor;
 use Queulat\Forms\Element\Input;
 use Queulat\Forms\Element\WP_Image;
+use Queulat\Forms\Element\WP_Media;
 use Queulat\Forms\Element\Select;
 
 
@@ -68,6 +69,16 @@ class Report_Metabox extends Metabox
                     'label' => 'Background image',
                     'properties' => [
                         'description' => 'Size recommended 2000x700 px'
+                    ]
+                ]
+            ),
+            Node_Factory::make(
+                WP_Media::class,
+                [
+                    'name' => 'background_video',
+                    'label' => 'Background Video',
+                    'properties' => [
+                        'description' => 'Extended recommended : .webm '
                     ]
                 ]
             ),
@@ -184,6 +195,9 @@ class Report_Metabox extends Metabox
                     $sanitized[$key] = $val;
                     break;
                 case 'background':
+                    $sanitized[$key] = $val;
+                    break;
+                case 'background_video':
                     $sanitized[$key] = $val;
                     break;
                 case 'welcome_page':

@@ -8,7 +8,9 @@
     <section class="main-feature">
         <?php 
             if (!empty($current_report->report_background)) {
-                echo wp_get_attachment_image($current_report->report_background, 'feature-full');
+                echo '<div class="feature-image">';
+                    echo wp_get_attachment_image($current_report->report_background, 'feature-full');
+                echo '</div>';
             }
         ?>
         
@@ -151,7 +153,7 @@
                 <div class="grid-x">
                     <div class="cell large-12">
                         <h2 class="section-label"><?php echo pll__('Major platforms sharing CC work'); ?></h2>
-                        <div class="entries-list platform-list grid-x grid-padding-x large-up-4 small-up-2" data-equalizer data-equalize-on="medium">
+                        <div class="entries-list platform-list grid-x grid-padding-x large-up-4 small-up-2" data-equalizer>
                             <?php 
                                 foreach ($platform_items as $item) {
                                     echo '<div class="cell">';

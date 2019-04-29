@@ -9,8 +9,17 @@
 <section class="main-content">
     <section class="main-feature">
         <?php 
-            if (!empty($current_report->report_background)) {
-                echo wp_get_attachment_image($current_report->report_background, 'feature-full');
+            if (!empty($current_report->report_background) && (empty($current_report->report_background))) {
+                echo '<div class="feature-image">';
+                    echo wp_get_attachment_image($current_report->report_background, 'feature-full');
+                echo '</div>';
+            } else if (!empty($current_report->report_background_video)) {
+                $video_url = wp_get_attachment_url( $current_report->report_background_video );
+                echo '<div class="feature-video">';
+                    echo '<video class="featured-video-element" id="main-video" loop muted autoplay>';
+                        echo '<source src="'.$video_url.'" type="video/webm; codecs=vp8,vorbis">';
+                    echo '</video>';
+                echo '</div>';
             }
         ?>
         
@@ -30,10 +39,10 @@
             $content = get_extended($page->post_content);
         ?>
             <a name="welcome"></a>
-            <section class="front-welcome">
+            <section class="front-welcome" id="welcome">
                 <div class="grid-container white-background">
                     <div class="grid-x grid-padding-x page-container">
-                        <div class="cell large-2">
+                        <div class="cell large-2 small-12">
                             <?php if (has_post_thumbnail($page->ID)):
                                     echo '<div class="page-image">';
                                         echo get_the_post_thumbnail($page->ID, 'squared');
@@ -41,7 +50,7 @@
                                 endif;
                             ?>
                         </div>
-                        <div class="cell large-10">
+                        <div class="cell large-10 small-12">
                             <div class="page-content">
                                 <span class="comma">&rdquo;</span>
                                 <?php 
@@ -64,7 +73,7 @@
             if (!empty($highlights)):
         ?>
             <a name="highlight"></a>
-            <section class="front-highlights section-container background-gray-light">
+            <section class="front-highlights section-container background-gray-light" id="highlight" data-magellan-target="highlight">
                 <div class="grid-container">
                     <div class="grid-x">
                         <div class="cell large-12">
@@ -91,7 +100,7 @@
         if (!empty($impact_items)):
      ?>
             <a name="impact"></a>
-            <section class="front-imapct section-container">
+            <section class="front-imapct section-container" id="impact" data-magellan-target="impact">
                 <div class="grid-container">
                     <div class="grid-x">
                         <div class="cell large-12">
@@ -128,7 +137,7 @@
         if (!empty($licenses_items)):
      ?>
             <a name="license"></a>
-            <section class="front-licenses section-container background-gray-light">
+            <section class="front-licenses section-container background-gray-light" id="license" data-magellan-target="license">
                 <div class="grid-container">
                     <div class="grid-x">
                         <div class="cell large-12">
@@ -152,12 +161,12 @@
         if (!empty($platform_items)):
      ?>
         <a name="platform"></a>
-        <section class="front-platform section-container">
+        <section class="front-platform section-container" id="platform" data-magellan-target="platform">
             <div class="grid-container">
                 <div class="grid-x">
                     <div class="cell large-12">
                         <h2 class="section-label"><?php echo pll__('Major platforms sharing CC work'); ?></h2>
-                        <div class="entries-list platform-list grid-x grid-padding-x large-up-4 small-up-2" data-equalizer data-equalize-on="medium">
+                        <div class="entries-list platform-list grid-x grid-padding-x large-up-4 small-up-2" data-equalizer>
                             <?php 
                                 foreach ($platform_items as $item) {
                                     echo '<div class="cell">';
@@ -181,7 +190,7 @@
         if (!empty($financial_items)):
      ?>
             <a name="financial"></a>
-            <section class="front-financial section-container background-gray-light">
+            <section class="front-financial section-container background-gray-light" id="financial" data-magellan-target="financial">
                 <div class="grid-container">
                     <div class="grid-x">
                         <div class="cell large-12">
@@ -219,7 +228,7 @@
         $page_thankyou = get_post($current_report->report_thanks_page);
     ?>
         <a name="thanks"></a>
-        <section class="front-thankyou section-container">
+        <section class="front-thankyou section-container" id="thanks" data-magellan-target="thanks">
             <div class="grid-container">
                 <div class="grid-x grid-padding-x page-container">
                     <div class="large-12 cell">

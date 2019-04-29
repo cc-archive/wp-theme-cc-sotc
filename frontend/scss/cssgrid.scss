@@ -12,7 +12,9 @@
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     @include breakpoint(small only) {
-        grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+        // grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+        display: flex;
+        flex-direction: column;
     }
 }
 @mixin grid-columns($cols: 12, $gap: .5rem) {
