@@ -2,6 +2,7 @@
 // Polylang translate strings
 pll_register_string( 'view-more', 'View more', 'general');
 pll_register_string( 'view-less', 'View less', 'general');
+pll_register_string( 'loading', 'Loading...', 'general');
 
 pll_register_string( 'title-highlight', 'Highlight', 'section-titles');
 pll_register_string( 'title-impact', 'Our impact by the numbers', 'section-titles');

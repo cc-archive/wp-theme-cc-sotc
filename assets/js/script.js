@@ -44,4 +44,45 @@ jQuery(document).ready(function($){
         $(this).parent().addClass('closed');
         return false;
     });
+    $('.menu-mobile-container').find('.menu-item-has-children > a').on('click', function(e){
+		e.preventDefault();
+		var obj = $(this);
+		obj.parent().toggleClass('opened');
+		obj.parent().find('.sub-menu').slideToggle('fast');
+		return false;
+	});
+    $('.more-platforms').on('click', function(e){
+		e.preventDefault();
+		var obj = $(this),
+			size = obj.parent().data('size'), //how many items we'll retrieve
+			offset = obj.parent().data('offset'), //Offset value to retrieve entries
+            year = obj.parent().data('year'),
+            loading_text = obj.parent().data('loading-text'),
+            current_text = obj.html();
+		$.ajax({
+				url: Ajax.url,
+				type: 'POST',
+				data: { action: 'get_current_platform', size: size, offset: offset, year: year},
+				success : function(data){
+					obj.html(current_text);
+					if (data == 0) {
+						obj.hide();
+					} else {
+						var new_offset = offset + size;
+						obj.parent().data('offset',new_offset);
+
+						$(data).hide().appendTo('.platform-list').fadeIn(1000);
+                        Foundation.reInit('equalizer');
+                        
+						//$('.list-feature-projects').append(data);
+					}
+				},
+				beforeSend: function(){
+					obj.html(loading_text);
+				}
+			});
+		return false;
+	});
+
+
 });

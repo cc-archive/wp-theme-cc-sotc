@@ -48,4 +48,41 @@ class front {
         $entries = self::get_post_type('sotc_report', $size);
         return $entries;
     }
+    public static function get_ajax_platforms() {
+        $size = esc_attr($_POST['size']);
+        $offset = esc_attr($_POST['offset']);
+        $year = esc_attr($_POST['year']);
+        $entries = new WP_Query(
+            array(
+                'post_type' => 'sotc_platform',
+                'posts_per_page' => $size,
+                'post_status' => 'publish',
+                'orderby' => 'menu_order',
+                'order' => 'ASC',
+                'offset' => $offset,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'sotc_year',
+                        'field' => 'term_id',
+                        'terms' => $year
+                    )
+                )
+            )
+        );
+        $out = '';
+        if ($entries->have_posts()) {
+            foreach ($entries->posts as $item) {
+                $out .= '<div class="cell">';
+                    $out .= render::platform($item);
+                $out .= '</div>';
+            }
+            echo $out;
+        } else {
+            echo 0;
+        }
+        exit(0);
+    }
 }
+
+add_action('wp_ajax_get_current_platform', array('front','get_ajax_platforms'));
+add_action('wp_ajax_nopriv_get_current_platform', array('front','get_ajax_platforms'));

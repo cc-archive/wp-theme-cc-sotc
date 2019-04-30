@@ -2,6 +2,9 @@
     get_header();
     global $_set, $post;
     $current_report = $post;
+    $highlight_entries = (!empty($settings['highlight_entries'])) ? $settings['highlight_entries'] : -1;
+    $impact_entries = (!empty($settings['impact_entries'])) ? $settings['impact_entries'] : -1;
+    $platform_entries = (!empty($settings['platform_entries'])) ? $settings['platform_entries'] : 4;
     if (!empty($current_report)):
 ?>
 <section class="main-content">
@@ -29,7 +32,7 @@
             $page = get_post($current_report->report_welcome_page);
             $content = get_extended($page->post_content);
         ?>
-            <section class="front-welcome">
+            <section class="front-welcome" id="welcome">
                 <div class="grid-container white-background">
                     <div class="grid-x grid-padding-x page-container">
                         <div class="cell large-2">
@@ -60,10 +63,10 @@
     <?php 
         if (!empty($current_report->report_highlights_tag)):
             
-            $highlights = front::get_highlights(-1,$current_report->report_highlights_tag);
+            $highlights = front::get_highlights($highlight_entries,$current_report->report_highlights_tag);
             if (!empty($highlights)):
         ?>
-            <section class="front-highlights section-container background-gray-light">
+            <section class="front-highlights section-container background-gray-light" id="highlight" data-magellan-target="highlight">
                 <div class="grid-container">
                     <div class="grid-x">
                         <div class="cell large-12">
@@ -86,10 +89,10 @@
     <?php endif; ?>
     <?php 
     if (!empty($current_report->report_impact_tag)):
-        $impact_items = front::get_impact_numbers(-1,$current_report->report_impact_tag);
+        $impact_items = front::get_impact_numbers($impact_entries,$current_report->report_impact_tag);
         if (!empty($impact_items)):
      ?>
-            <section class="front-imapct section-container">
+            <section class="front-imapct section-container" id="impact" data-magellan-target="impact">
                 <div class="grid-container">
                     <div class="grid-x">
                         <div class="cell large-12">
@@ -125,7 +128,7 @@
         $licenses_items = front::get_license_data(1,$current_report->report_data_tag);
         if (!empty($licenses_items)):
      ?>
-            <section class="front-licenses section-container background-gray-light">
+            <section class="front-licenses section-container background-gray-light" id="license" data-magellan-target="license">
                 <div class="grid-container">
                     <div class="grid-x">
                         <div class="cell large-12">
@@ -145,10 +148,11 @@
     <?php endif; ?>
     <?php 
     if (!empty($current_report->report_platform_tag)):
-        $platform_items = front::get_platforms(8,$current_report->report_platform_tag);
+        $platform_items = front::get_platforms($platform_entries,$current_report->report_platform_tag);
         if (!empty($platform_items)):
      ?>
-        <section class="front-platform section-container">
+        <a name="platform"></a>
+        <section class="front-platform section-container" id="platform" data-magellan-target="platform">
             <div class="grid-container">
                 <div class="grid-x">
                     <div class="cell large-12">
@@ -162,7 +166,7 @@
                                 }
                             ?>
                         </div>
-                        <div class="more-button text-center inner-space">
+                        <div class="more-button text-center inner-space" data-size="<?php echo $platform_entries ?>" data-loading-text="<?php echo pll__('Loading...') ?>" data-year="<?php echo $current_report->report_platform_tag ?>" data-offset="<?php echo $platform_entries ?>">
                             <a href="#more" class="button hollow primary more-platforms"><?php echo pll__('View more'); ?></a>
                         </div>
                     </div>
@@ -176,7 +180,7 @@
         $financial_items = front::get_financial_data(-1,$current_report->report_financial_tag);
         if (!empty($financial_items)):
      ?>
-            <section class="front-financial section-container background-gray-light">
+            <section class="front-financial section-container background-gray-light" id="financial" data-magellan-target="financial">
                 <div class="grid-container">
                     <div class="grid-x">
                         <div class="cell large-12">
@@ -213,7 +217,7 @@
     if (!empty($current_report->report_thanks_page)) :
         $page_thankyou = get_post($current_report->report_thanks_page);
     ?>
-        <section class="front-thankyou section-container">
+        <section class="front-thankyou section-container" id="thanks" data-magellan-target="thanks">
             <div class="grid-container">
                 <div class="grid-x grid-padding-x page-container">
                     <div class="large-12 cell">

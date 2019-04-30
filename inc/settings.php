@@ -5,6 +5,7 @@ use Queulat\Forms\Node_Factory;
 use Queulat\Forms\Element\WP_Nonce;
 use Queulat\Forms\Element\WP_Editor;
 use Queulat\Forms\Element\Input;
+use Queulat\Forms\Element\Input_Number;
 use Queulat\Forms\Element\Select;
 
 class ThemeSettings
@@ -86,6 +87,36 @@ class ThemeSettings
                             ]
                         ),
                         Node_Factory::make(
+                            Input_Number::class,
+                            [
+                                'name' => 'highlight_entries',
+                                'label' => 'Highlight Entries',
+                                'properties' => [
+                                    'description' => 'How many highlight entries (-1 to show them all)'
+                                ]
+                            ]
+                        ),
+                        Node_Factory::make(
+                            Input_Number::class,
+                            [
+                                'name' => 'impact_entries',
+                                'label' => 'Impact Entries',
+                                'properties' => [
+                                    'description' => 'How many impact entries (-1 to show them all)'
+                                ]
+                            ]
+                        ),
+                         Node_Factory::make(
+                            Input_Number::class,
+                            [
+                                'name' => 'platform_entries',
+                                'label' => 'Platform Entries',
+                                'properties' => [
+                                    'description' => 'How many platform entries (-1 to show them all)'
+                                ]
+                            ]
+                        ),
+                        Node_Factory::make(
                             WP_Nonce::class,
                             [
                                 'properties' => [
@@ -128,6 +159,9 @@ class ThemeSettings
         if (!wp_verify_nonce($_POST['_site_settings_nonce'], 'update_site_settings')) wp_die(_x("You are not supposed to do that", 'site settings error', 'cc-sotc'));
         if (!current_user_can('edit_theme_options')) wp_die(_x("You are not allowed to edit this options", 'site settings error', 'cc-sotc'));
         $fields = array(
+            'highlight_entries',
+            'impact_entries',
+            'platform_entries',
             'footer-content',
             'current-report'
         );

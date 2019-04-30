@@ -15,6 +15,9 @@
             // background-image: url(img/back-video.png);
             background-position: center;
             background-size: cover;
+            @include breakpoint(xlarge) {
+                margin-top: 0;
+            }
         }
     }
     .content-wrap {
