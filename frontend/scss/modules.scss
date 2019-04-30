@@ -18,6 +18,16 @@
             @include breakpoint(xlarge) {
                 margin-top: 0;
             }
+            @include breakpoint(medium only) {
+                margin-top: 0;
+                margin-left: -13%;
+                width: 130%;
+            }
+            @include breakpoint(small only) {
+                margin-top: 0;
+                margin-left: -30%;
+                width: 180%;
+            }
         }
     }
     .content-wrap {
