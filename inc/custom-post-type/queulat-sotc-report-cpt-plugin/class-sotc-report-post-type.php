@@ -72,7 +72,7 @@ class Sotc_Report_Post_Type extends Post_Type {
 				'ep_mask'    => 1,
 			],
 			'supports'              => [
-				0 => 'title',
+				0 => 'title'
 			],
 			'show_in_rest'          => true,
 			'rest_base'             => false,

@@ -96,7 +96,7 @@ class site {
 	public $show_welcome = true;
 
 	const id = __CLASS__;
-	const theme_ver = '20190415';
+	const theme_ver = '2019.5.3';
 	const theme_settings_permissions = 'edit_theme_options';
 	private function __construct(){
 		/**

@@ -7,12 +7,12 @@ use Queulat\Forms\Element\Input;
 class Platform_Metabox extends Metabox
 {
     public function __construct($id = '', $title = '', $post_type = '', array $args = array()) {
-        wp_enqueue_media();
         parent::__construct($id, $title, $post_type, $args);
     }
     
     public function get_fields() : array
     {
+        wp_enqueue_media();
         return [
             Node_Factory::make(
                 Input::class,
