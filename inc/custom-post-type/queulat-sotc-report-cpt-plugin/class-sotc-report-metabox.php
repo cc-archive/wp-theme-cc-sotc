@@ -35,6 +35,7 @@ class Report_Metabox extends Metabox
     }
     public function get_fields() : array
     {
+         wp_enqueue_media();
         return [
              Node_Factory::make(
                 Input::class,
