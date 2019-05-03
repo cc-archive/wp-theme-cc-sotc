@@ -45,7 +45,7 @@
             <section class="front-welcome" id="welcome">
                 <div class="grid-container white-background">
                     <div class="grid-x grid-padding-x page-container">
-                        <div class="cell large-2 small-12">
+                        <div class="cell large-2 medium-2 small-12">
                             <?php if (has_post_thumbnail($page->ID)):
                                     echo '<div class="page-image">';
                                         echo get_the_post_thumbnail($page->ID, 'squared');
@@ -53,7 +53,7 @@
                                 endif;
                             ?>
                         </div>
-                        <div class="cell large-10 small-12">
+                        <div class="cell large-10 medium-10 small-12">
                             <div class="page-content">
                                 <span class="comma">&rdquo;</span>
                                 <?php 

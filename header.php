@@ -35,7 +35,7 @@
               'container' => '',
               'depth' => 2,
               'fallback_cb' => false,
-              'items_wrap' => '<ul id = "%1$s" class = "menu vertical %2$s">%3$s</ul>'
+              'items_wrap' => '<ul id = "%1$s" class = "menu vertical %2$s" data-magellan>%3$s</ul>'
               );
 
           wp_nav_menu( $args );
@@ -44,10 +44,10 @@
 <header class="main-header-sticky hide-for-small-only">
 	<div class="grid-container gradient-blue">
 		<div class="grid-x grid-padding-x navigation hide-for-small-only">
-			<div class="cell large-3 columns mini-logo">
+			<div class="cell large-3 medium-2 columns mini-logo">
 				<a href="<?php bloginfo('url') ?>"><h1 class="site-title"><?php bloginfo('name') ?></h1><span class="tagline">State of the commons</span></a>
 			</div>
-			<div class="cell large-9 columns nav">
+			<div class="cell large-9 medium-10 columns nav">
 				<nav class="main-navigation">
 						<?php 
 						$args = array(
